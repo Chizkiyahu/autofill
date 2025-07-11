@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>All AutoFill Preferences</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="popup.css">
+  <style>
+    body {
+      width: auto;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1em;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 6px;
+    }
+    th {
+      background: #f8f9fa;
+    }
+    #controls button,
+    #controls label {
+      width: auto;
+    }
+    #form-container button {
+      width: auto;
+    }
+    #prefs-table button {
+      width: auto;
+      margin-right: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h1>All AutoFill Preferences</h1>
+  <div id="controls" class="button-row">
+    <button id="add-btn" class="primary">Add Preference</button>
+    <button id="export-btn" class="secondary">Export CSV</button>
+    <label class="secondary" style="position:relative;">
+      Import CSV
+      <input type="file" id="import-input" accept="text/csv" style="position:absolute;left:-9999px;width:1px;">
+    </label>
+  </div>
+
+  <table id="prefs-table">
+    <thead>
+      <tr><th>URL</th><th>Label</th><th>Value</th><th>Selector</th><th>Actions</th></tr>
+    </thead>
+    <tbody id="prefs-tbody"></tbody>
+  </table>
+
+  <div id="form-container" class="hidden">
+    <h2 id="form-title">Add Preference</h2>
+    <label for="host-input">URL</label>
+    <input type="text" id="host-input">
+    <label for="label-input">Label</label>
+    <input type="text" id="label-input">
+    <label for="selector-input">Selector</label>
+    <input type="text" id="selector-input">
+    <label for="value-input">Value</label>
+    <input type="text" id="value-input">
+    <div class="button-row">
+      <button id="save-btn" class="primary">Save</button>
+      <button id="cancel-btn" class="secondary">Cancel</button>
+    </div>
+  </div>
+
+  <script src="global.js"></script>
+</body>
+</html>

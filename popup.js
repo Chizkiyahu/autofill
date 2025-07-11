@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // grab UI elements
   const listEl = document.getElementById('prefs-list');
   const addNewBtn = document.getElementById('add-new');
+  const manageAllBtn = document.getElementById('manage-all');
   const formContainer = document.getElementById('form-container');
   const fieldSelect = document.getElementById('field-select');
   const valueInput = document.getElementById('value-input');
@@ -103,6 +104,10 @@ document.addEventListener('DOMContentLoaded', () => {
   addNewBtn.addEventListener('click', () => {
     editIndex = -1;
     showForm();
+  });
+
+  manageAllBtn.addEventListener('click', () => {
+    chrome.tabs.create({ url: chrome.runtime.getURL('global.html') });
   });
 
   cancelBtn.addEventListener('click', hideForm);
