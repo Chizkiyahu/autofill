@@ -53,6 +53,11 @@ button:disabled {
   margin-top: 1em;
 }
 
+.button-row button,
+.button-row label.secondary {
+  width: auto;
+}
+
 #form-container {
   margin-top: 1em;
   border-top: 1px solid #ccc;
@@ -66,6 +71,18 @@ button:disabled {
 label {
   display: block;
   margin-top: 0.5em;
+}
+
+label.secondary {
+  padding: 6px 10px;
+  border-radius: 4px;
+  background: #6c757d;
+  color: #fff;
+  cursor: pointer;
+}
+
+label.import-label {
+  position: relative;
 }
 
 input, select, button {

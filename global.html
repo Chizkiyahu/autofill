@@ -41,10 +41,8 @@
   <div id="controls" class="button-row">
     <button id="add-btn" class="primary">Add Preference</button>
     <button id="export-btn" class="secondary">Export CSV</button>
-    <label class="secondary" style="position:relative;">
-      Import CSV
-      <input type="file" id="import-input" accept="text/csv" style="position:absolute;left:-9999px;width:1px;">
-    </label>
+    <label for="import-input" class="secondary import-label">Import CSV</label>
+    <input type="file" id="import-input" accept="text/csv" style="display:none;">
   </div>
 
   <table id="prefs-table">
