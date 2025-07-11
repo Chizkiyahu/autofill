@@ -1,0 +1,41 @@
+body {
+  font-family: sans-serif;
+  padding: 10px;
+  width: 300px;
+}
+
+h1 {
+  font-size: 1.2em;
+  margin-bottom: 0.5em;
+}
+
+#prefs-list .pref-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5em;
+}
+
+#prefs-list .pref-item button {
+  margin-left: 5px;
+}
+
+#form-container {
+  margin-top: 1em;
+  border-top: 1px solid #ccc;
+  padding-top: 1em;
+}
+
+.hidden {
+  display: none;
+}
+
+label {
+  display: block;
+  margin-top: 0.5em;
+}
+
+input, select, button {
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 0.2em;
+}

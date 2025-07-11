@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SitePrefs</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <h1>SitePrefs</h1>
+
+  <div id="prefs-list"></div>
+  <button id="add-new">Add New</button>
+
+  <div id="form-container" class="hidden">
+    <label for="field-select">Field:</label>
+    <select id="field-select"></select>
+
+    <label for="value-input">Value:</label>
+    <input type="text" id="value-input">
+
+    <button id="save-btn">Save</button>
+    <button id="cancel-btn">Cancel</button>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
