@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const tableBody = document.getElementById('prefs-tbody');
   const addBtn = document.getElementById('add-btn');
   const exportBtn = document.getElementById('export-btn');
+  const importBtn = document.getElementById('import-btn');
   const importInput = document.getElementById('import-input');
   const formContainer = document.getElementById('form-container');
   const formTitle = document.getElementById('form-title');
@@ -159,6 +160,10 @@ document.addEventListener('DOMContentLoaded', () => {
     a.download = 'autofill_prefs.csv';
     a.click();
     URL.revokeObjectURL(url);
+  });
+
+  importBtn.addEventListener('click', () => {
+    importInput.click();
   });
 
   function parseCsvLine(line) {
