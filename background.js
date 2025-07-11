@@ -7,3 +7,20 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
     return true;
   }
 });
+
+function createContextMenu() {
+  chrome.contextMenus.create({
+    id: 'set-autofill',
+    title: 'Set AutoFill value',
+    contexts: ['editable']
+  });
+}
+
+chrome.runtime.onInstalled.addListener(createContextMenu);
+chrome.runtime.onStartup.addListener(createContextMenu);
+
+chrome.contextMenus.onClicked.addListener((info, tab) => {
+  if (info.menuItemId === 'set-autofill') {
+    chrome.tabs.sendMessage(tab.id, { type: 'SET_FIELD_VALUE' });
+  }
+});
