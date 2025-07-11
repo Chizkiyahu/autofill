@@ -2,24 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>SitePrefs</title>
+  <title>AutoFill Preferences</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="popup.css">
 </head>
 <body>
-  <h1>SitePrefs</h1>
+  <h1>AutoFill Preferences for <span id="host-name"></span></h1>
 
-  <div id="prefs-list"></div>
-  <button id="add-new">Add New</button>
+  <div id="prefs-container">
+    <div id="prefs-list"></div>
+    <p id="no-prefs" class="hidden">No preferences saved.</p>
+    <button id="add-new" class="primary">Add Preference</button>
+  </div>
 
   <div id="form-container" class="hidden">
-    <label for="field-select">Field:</label>
+    <h2 id="form-title">Add Preference</h2>
+    <label for="field-select">Field</label>
     <select id="field-select"></select>
 
-    <label for="value-input">Value:</label>
+    <label for="value-input">Value</label>
     <input type="text" id="value-input">
 
-    <button id="save-btn">Save</button>
-    <button id="cancel-btn">Cancel</button>
+    <div class="button-row">
+      <button id="save-btn" class="primary">Save</button>
+      <button id="cancel-btn" class="secondary">Cancel</button>
+    </div>
   </div>
 
   <script src="popup.js"></script>

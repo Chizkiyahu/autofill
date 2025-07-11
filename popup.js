@@ -7,6 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const valueInput = document.getElementById('value-input');
   const saveBtn = document.getElementById('save-btn');
   const cancelBtn = document.getElementById('cancel-btn');
+  const hostNameEl = document.getElementById('host-name');
+  const noPrefsEl = document.getElementById('no-prefs');
+  const formTitle = document.getElementById('form-title');
 
   let prefs = [];
   let editIndex = -1;
@@ -17,17 +20,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const url = new URL(tabs[0].url);
     const host = url.hostname;
     storageKey = `prefs__${host}`;
+    if (hostNameEl) {
+      hostNameEl.textContent = host;
+    }
     loadPrefs();
   });
 
   function renderList() {
     listEl.innerHTML = '';
+    if (!prefs.length) {
+      noPrefsEl.classList.remove('hidden');
+      return;
+    }
+    noPrefsEl.classList.add('hidden');
     prefs.forEach((p, i) => {
       const item = document.createElement('div');
       item.className = 'pref-item';
       item.innerHTML = `
         <span>${p.label}: ${p.value}</span>
-        <span>
+        <span class="pref-actions">
           <button data-action="edit" data-index="${i}">Edit</button>
           <button data-action="del" data-index="${i}">Delete</button>
         </span>
@@ -53,6 +64,9 @@ document.addEventListener('DOMContentLoaded', () => {
   function showForm(edit = false) {
     formContainer.classList.remove('hidden');
     addNewBtn.disabled = true;
+    if (formTitle) {
+      formTitle.textContent = edit ? 'Edit Preference' : 'Add Preference';
+    }
 
     // fetch page fields
     chrome.tabs.query({ active: true, currentWindow: true }, tabs => {
@@ -83,6 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
     formContainer.classList.add('hidden');
     addNewBtn.disabled = false;
     editIndex = -1;
+    valueInput.value = '';
   }
 
   addNewBtn.addEventListener('click', () => {
